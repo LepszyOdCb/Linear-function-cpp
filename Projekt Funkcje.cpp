@@ -3,7 +3,7 @@
 
 using namespace std;
 
-// Funkcja licz膮ca a i b
+// Funkcja liczaca a i b
 void liczenieAiB(double x1, double y1, double x2, double y2, double& a, double& b) {
     if (x1 == x2 && y1 == y2) {
         cout << "Podane wspolrzedne sa punktem!" << endl;
@@ -21,7 +21,7 @@ void liczenieAiB(double x1, double y1, double x2, double y2, double& a, double& 
     }
 }
 
-// Funkcja sprawdzaj膮ca czy funkcja ro艣nie lub maleje
+// Funkcja sprawdzajaca czy funkcja rosnie lub maleje
 void monotonicznosc(double a, double x1, double y1, double x2, double y2) {
     if (a > 0) {
         cout << "Funkcja rosnie" << endl;
@@ -32,7 +32,7 @@ void monotonicznosc(double a, double x1, double y1, double x2, double y2) {
 	}
 }
 
-// Funkcja licz膮ca dziedzin臋 oraz zbi贸r warto艣ci
+// Funkcja liczaca dziedzine oraz zbior wartosci
 void dziedzinaZbiorWartosci(double x1, double y1, double x2, double y2) {
 	if (x1 < x2) {
 		cout << "Df x = <" << x1 << ", " << x2 << ">" << endl;
@@ -55,7 +55,7 @@ void dziedzinaZbiorWartosci(double x1, double y1, double x2, double y2) {
 	} 
 }
 
-// Funkcja licz膮ca dla kt贸rych x y jest ujemne i dodatnie
+// Funkcja liczaca dla ktorych x y jest ujemne i dodatnie
 void yUjemneDodatnieX(double a, double b, double x1, double y1, double x2, double y2, double miejscezerowe) {
    miejscezerowe = b*(-1)/a;
 		if (x1 <= miejscezerowe && x2 <= miejscezerowe) {
@@ -118,7 +118,7 @@ void yUjemneDodatnieX(double a, double b, double x1, double y1, double x2, doubl
 		}
 }
 
-// Funkcja licz膮ca miejsce zerowe
+// Funkcja liczaca miejsce zerowe
 void miejscazerowe(double a, double b, double x1, double y1, double x2, double y2, double miejscezerowe) {
    	miejscezerowe = b*(-1)/a;
 	if (x1 == miejscezerowe || x2 == miejscezerowe) {
@@ -133,7 +133,7 @@ void miejscazerowe(double a, double b, double x1, double y1, double x2, double y
    
 }
 
-// Funkcja licz膮ca argumenty dla warto艣ci
+// Funkcja liczaca argumenty dla warto渃i
 void liczenieArgDlaWar(double a, double b, int wybor, double x, double y, bool petla, int kontynuacja, double x1, double y1, double x2, double y2) {
 	cout << "Podaj wartosc (y): " << endl;
 	cin >> y;
@@ -146,7 +146,7 @@ void liczenieArgDlaWar(double a, double b, int wybor, double x, double y, bool p
 	}	
 }
 
-// Funkcja licz膮ca argumenty dla warto艣ci
+// Funkcja liczaca argumenty dla warto渃i
 void liczenieWarDlaArg(double a, double b, int wybor, double x, double y, bool petla, int kontynuacja, double x1, double y1, double x2, double y2) {
 	cout << "Podaj argument (x): " << endl;
 	cin >> x;
@@ -159,7 +159,7 @@ void liczenieWarDlaArg(double a, double b, int wybor, double x, double y, bool p
 	}	
 }
 
-// G艂贸wna p臋tla kodu
+// Gl體na petla kodu
 int main() {
 	
     // Zmienne
@@ -167,7 +167,7 @@ int main() {
     int wybor, kontynuacja;
     bool petla = true;
 
-    // G艂owny kod
+    // Glowny kod
     cout << "=-=-=-=-= Start =-=-=-=-=" << endl;
     cout << "Liczenie funkcji liniowej" << endl;
     cout << "Podaj x i y 1. punktu: " << endl;
@@ -202,10 +202,12 @@ int main() {
                 break;
 
             default:
-                cout << "Niepoprawny wyb贸r." << endl;
+                cout << "Niepoprawny wyb髍." << endl;
                 break;
         }
     }
-	cout << "=-=-=-=-= Koniec =-=-=-=" << endl;	
+	cout << "=-=-=-=-= Koniec =-=-=-=" << endl;
+    	
 		return 0;
 }
+
