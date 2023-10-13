@@ -4,8 +4,9 @@
 using namespace std;
 
 // Funkcja liczaca a i b
-void liczenieAiB(double x1, double y1, double x2, double y2, double& a, double& b) {
-    if (x1 == x2 && y1 == y2) {
+void liczenieAiB(double x1, double y1, double x2, double y2, double& a, double& b, double zmienna) {
+    zmienna = y2;
+	if (x1 == x2 && y1 == y2) {
         cout << "Podane wspolrzedne sa punktem!" << endl;
     } 
 	else if (x1 != x2 && y1 != y2) {
@@ -28,7 +29,7 @@ void monotonicznosc(double a, double x1, double y1, double x2, double y2) {
     } else if (a < 0) {
         cout << "Funkcja maleje" << endl;
     } else {
-        cout << "Funkcja jest prosta prostopadla do Y0" << endl;
+        cout << "Funkcja jest nieprawidlowa" << endl;
 	}
 }
 
@@ -138,7 +139,7 @@ void liczenieArgDlaWar(double a, double b, int wybor, double x, double y, bool p
 	cout << "Podaj wartosc (y): " << endl;
 	cin >> y;
 	x = (y - b) / a;
-	if ((x<x1&&y<x2) || (x>x1&&x>x2)) {
+	if ((x<x1&&x<x2) || (x>x1&&x>x2)) {
 		cout << "Poza dziedzina!" << endl;
 	}
 	else {
@@ -147,15 +148,15 @@ void liczenieArgDlaWar(double a, double b, int wybor, double x, double y, bool p
 }
 
 // Funkcja liczaca argumenty dla wartoœci
-void liczenieWarDlaArg(double a, double b, int wybor, double x, double y, bool petla, int kontynuacja, double x1, double y1, double x2, double y2) {
+void liczenieWarDlaArg(double a, double b, int wybor, double x, double y, bool petla, int kontynuacja, double x1, double y1, double x2, double y2, double zmienna) {
 	cout << "Podaj argument (x): " << endl;
 	cin >> x;
 	y = (a*x) + b;
-	if ((y<y1&&y<y2) || (y>y1&&y>y2)) {
-		cout << "Poza dziedzina!" << endl;
+	if ((y>=y1&&y<=zmienna) || (y>=zmienna&&y<=y1)) {
+		cout << "f(" << x << ") = " << y <<endl;
 	}
 	else {
-		cout << "f(" << x << ") = " << y <<endl;
+		cout << "Poza dziedzina!" << endl;
 	}	
 }
 
@@ -163,7 +164,7 @@ void liczenieWarDlaArg(double a, double b, int wybor, double x, double y, bool p
 int main() {
 	
     // Zmienne
-    double x1, y1, x2, y2, a = 0, b = 0, x, y, miejscezerowe;
+    double x1, y1, x2, y2, a = 0, b = 0, x, y, miejscezerowe, zmienna;
     int wybor, kontynuacja;
     bool petla = true;
 
@@ -177,7 +178,7 @@ int main() {
     cin >> x2;
     cin >> y2;
     cout << "=-=-=-=-= Wyniki =-=-=-=" << endl;
-	liczenieAiB(x1, y1, x2, y2, a, b);
+	liczenieAiB(x1, y1, x2, y2, a, b, zmienna);
 	monotonicznosc(a, x1, x2, y1, y2);	
 	dziedzinaZbiorWartosci(x1, y1, x2, y2);
 	yUjemneDodatnieX(a, b, x1, y1, x2, y2, miejscezerowe);
@@ -194,7 +195,7 @@ int main() {
                 liczenieArgDlaWar(a, b, wybor, x, y, petla, kontynuacja, x1, y2, x2, y2);
                 break;
             case 2:
-                liczenieWarDlaArg(a, b, wybor, x, y, petla, kontynuacja, x1, y2, x2, y2);
+                liczenieWarDlaArg(a, b, wybor, x, y, petla, kontynuacja, x1, y2, x2, y2, zmienna);
                 break;
 
             case 3:
@@ -202,7 +203,7 @@ int main() {
                 break;
 
             default:
-                cout << "Niepoprawny wybór." << endl;
+                cout << "Niepoprawny wybor." << endl;
                 break;
         }
     }
